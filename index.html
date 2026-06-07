@@ -1025,161 +1025,206 @@ section.alt {
     }
 }
 
-/* Wireframe: Coverage Matrix + Image Grid */
+/* Wireframe: Sort + Review Layout */
 .wireframe-section {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 30px;
+    border-radius: 0;
+    padding: 0;
     margin: 30px 0;
     position: relative;
+    overflow: hidden;
 }
 
 .wireframe-section::before {
-    content: '// wireframe: coverage-matrix + image-grid';
+    content: '// wireframe: sort + review';
     display: block;
     color: var(--text-dim);
     font-size: 0.7rem;
-    margin-bottom: 20px;
+    padding: 10px 16px;
     letter-spacing: 1px;
+    border-bottom: 1px solid var(--border);
+    background: #0e0e0e;
 }
 
-.wireframe-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
+/* Step indicator bar */
+.wf-steps-bar {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    background: #0a0a0a;
 }
 
-.wireframe-panel {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 20px;
-}
-
-.wireframe-panel-title {
-    font-size: 0.75rem;
+.wf-step {
+    flex: 1;
+    padding: 10px 16px;
+    font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: var(--accent);
-    margin-bottom: 16px;
-    font-weight: 500;
+    color: var(--text-dim);
+    text-align: center;
+    border-right: 1px solid var(--border);
 }
 
-/* Coverage grid wireframe */
-.wf-coverage-grid {
+.wf-step:last-child { border-right: none; }
+
+.wf-step.active {
+    color: var(--accent);
+    background: rgba(245, 158, 11, 0.06);
+    border-bottom: 2px solid var(--accent);
+}
+
+.wf-step-num {
+    font-weight: 700;
+    margin-right: 6px;
+}
+
+/* Sort layout: sidebar + photo grid */
+.wireframe-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 0;
+    min-height: 360px;
+}
+
+/* Category sidebar */
+.wf-sidebar {
+    border-right: 1px solid var(--border);
+    padding: 14px;
+    background: #0c0c0c;
+}
+
+.wf-sidebar-title {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #222;
+}
+
+.wf-category {
+    padding: 8px 10px;
+    margin-bottom: 4px;
+    cursor: default;
+}
+
+.wf-category.active {
+    background: rgba(245, 158, 11, 0.08);
+    border-left: 2px solid var(--accent);
+}
+
+.wf-cat-name {
+    font-size: 0.7rem;
+    color: var(--text);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wf-cat-count {
+    font-size: 0.6rem;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.wf-cat-bar-track {
+    height: 4px;
+    background: #1a1a1a;
+    margin-top: 5px;
+}
+
+.wf-cat-bar-fill {
+    height: 100%;
+    background: var(--accent);
+    opacity: 0.6;
+}
+
+/* Photo grid */
+.wf-photo-area {
+    padding: 14px;
+}
+
+.wf-photo-area-title {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+}
+
+.wf-photo-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 8px;
-    margin-bottom: 14px;
 }
 
-.wf-cell {
+.wf-photo-card {
+    border: 1px solid #222;
+    background: #0e0e0e;
+}
+
+.wf-photo-thumb {
     aspect-ratio: 1;
-    border-radius: 2px;
-    min-height: 36px;
-}
-
-.wf-cell.filled {
-    background: var(--accent);
-    opacity: 0.7;
-}
-
-.wf-cell.partial {
-    background: var(--accent-dark);
-    opacity: 0.4;
-}
-
-.wf-cell.empty {
-    background: transparent;
-    border: 1px dashed #333;
-}
-
-.wf-legend {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    margin-top: 10px;
-}
-
-.wf-legend-item {
+    background: #1a1a1a;
     display: flex;
     align-items: center;
-    gap: 6px;
-    font-size: 0.7rem;
-    color: var(--text-dim);
-}
-
-.wf-legend-swatch {
-    width: 10px;
-    height: 10px;
-    border-radius: 2px;
-}
-
-.wf-legend-swatch.swatch-filled {
-    background: var(--accent);
-    opacity: 0.7;
-}
-
-.wf-legend-swatch.swatch-partial {
-    background: var(--accent-dark);
-    opacity: 0.4;
-}
-
-.wf-legend-swatch.swatch-empty {
-    border: 1px dashed #333;
-}
-
-/* Image card grid wireframe */
-.wf-image-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-}
-
-.wf-image-card {
-    aspect-ratio: 4/3;
-    border-radius: 2px;
-    display: flex;
-    align-items: flex-end;
     justify-content: center;
-    padding: 6px;
-    font-size: 0.6rem;
-    letter-spacing: 0.5px;
-    min-height: 60px;
+    font-size: 0.55rem;
+    color: #333;
+    border-bottom: 1px solid #222;
 }
 
-.wf-image-card.card-ai {
-    background: rgba(245, 158, 11, 0.12);
-    border: 1px solid var(--accent);
-    color: var(--accent);
+.wf-photo-info {
+    padding: 6px 8px;
 }
 
-.wf-image-card.card-file {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid #333;
+.wf-photo-filename {
+    font-size: 0.55rem;
     color: var(--text-dim);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.wf-image-card.card-uncertain {
-    background: transparent;
-    border: 1px dashed var(--accent-dark);
-    color: var(--accent-dark);
+.wf-photo-status {
+    font-size: 0.55rem;
+    margin-top: 2px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
+
+.wf-photo-status.status-ok { color: #22C55E; }
+.wf-photo-status.status-fixed { color: #F59E0B; }
+.wf-photo-status.status-unsorted { color: #EF4444; }
 
 @media (max-width: 768px) {
     .wireframe-layout {
         grid-template-columns: 1fr;
-        gap: 20px;
+    }
+    .wf-sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
     }
     .wireframe-section {
-        padding: 20px;
+        padding: 0;
+    }
+    .wf-photo-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 576px) {
-    .wf-coverage-grid {
-        gap: 5px;
+    .wf-steps-bar {
+        flex-direction: column;
+    }
+    .wf-step {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+    .wf-photo-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
     .wf-cell {
         min-height: 28px;
@@ -1417,7 +1462,7 @@ section.alt {
                     <div class="project-meta">
                         <div class="meta-item">
                             <span class="meta-label">Role</span>
-                            <span class="meta-value">Design + Build (Solo)</span>
+                            <span class="meta-value">Design + Build</span>
                         </div>
                         <div class="meta-item">
                             <span class="meta-label">Year</span>
@@ -1561,51 +1606,103 @@ section.alt {
                     </div>
                 </div>
 
-                <!-- Wireframe: Coverage Matrix + Image Grid -->
+                <!-- Wireframe: Sort + Review -->
                 <div class="wireframe-section fade-in">
+                    <!-- Step Indicator Bar -->
+                    <div class="wf-steps-bar">
+                        <div class="wf-step"><span class="wf-step-num">01</span>Upload</div>
+                        <div class="wf-step active"><span class="wf-step-num">02</span>Sort + Review</div>
+                        <div class="wf-step"><span class="wf-step-num">03</span>Export</div>
+                    </div>
                     <div class="wireframe-layout">
-                        <!-- Left: Coverage Matrix -->
-                        <div class="wireframe-panel">
-                            <div class="wireframe-panel-title">Coverage Matrix</div>
-                            <div class="wf-coverage-grid">
-                                <div class="wf-cell filled"></div>
-                                <div class="wf-cell filled"></div>
-                                <div class="wf-cell partial"></div>
-                                <div class="wf-cell empty"></div>
-                                <div class="wf-cell filled"></div>
-                                <div class="wf-cell empty"></div>
-                                <div class="wf-cell filled"></div>
-                                <div class="wf-cell filled"></div>
-                                <div class="wf-cell empty"></div>
-                                <div class="wf-cell partial"></div>
-                                <div class="wf-cell filled"></div>
-                                <div class="wf-cell empty"></div>
+                        <!-- Left: Category Sidebar -->
+                        <div class="wf-sidebar">
+                            <div class="wf-sidebar-title">Categories</div>
+                            <div class="wf-category active">
+                                <div class="wf-cat-name">Black <span class="wf-cat-count">24</span></div>
+                                <div class="wf-cat-bar-track"><div class="wf-cat-bar-fill" style="width:92%"></div></div>
                             </div>
-                            <div class="wf-legend">
-                                <div class="wf-legend-item">
-                                    <div class="wf-legend-swatch swatch-filled"></div>
-                                    covered
-                                </div>
-                                <div class="wf-legend-item">
-                                    <div class="wf-legend-swatch swatch-partial"></div>
-                                    partial
-                                </div>
-                                <div class="wf-legend-item">
-                                    <div class="wf-legend-swatch swatch-empty"></div>
-                                    gap
-                                </div>
+                            <div class="wf-category">
+                                <div class="wf-cat-name">White <span class="wf-cat-count">18</span></div>
+                                <div class="wf-cat-bar-track"><div class="wf-cat-bar-fill" style="width:75%"></div></div>
+                            </div>
+                            <div class="wf-category">
+                                <div class="wf-cat-name">Glow <span class="wf-cat-count">12</span></div>
+                                <div class="wf-cat-bar-track"><div class="wf-cat-bar-fill" style="width:55%"></div></div>
+                            </div>
+                            <div class="wf-category">
+                                <div class="wf-cat-name">Matte <span class="wf-cat-count">9</span></div>
+                                <div class="wf-cat-bar-track"><div class="wf-cat-bar-fill" style="width:40%"></div></div>
+                            </div>
+                            <div class="wf-category">
+                                <div class="wf-cat-name">Silver <span class="wf-cat-count">6</span></div>
+                                <div class="wf-cat-bar-track"><div class="wf-cat-bar-fill" style="width:28%"></div></div>
+                            </div>
+                            <div class="wf-category">
+                                <div class="wf-cat-name">Unsorted <span class="wf-cat-count">3</span></div>
+                                <div class="wf-cat-bar-track"><div class="wf-cat-bar-fill" style="width:12%;background:#EF4444"></div></div>
                             </div>
                         </div>
-                        <!-- Right: Image Card Grid -->
-                        <div class="wireframe-panel">
-                            <div class="wireframe-panel-title">Image Cards</div>
-                            <div class="wf-image-grid">
-                                <div class="wf-image-card card-ai">AI: glow</div>
-                                <div class="wf-image-card card-file">file: black</div>
-                                <div class="wf-image-card card-ai">AI: matte</div>
-                                <div class="wf-image-card card-file">file: white</div>
-                                <div class="wf-image-card card-uncertain">? low conf</div>
-                                <div class="wf-image-card card-file">file: silver</div>
+                        <!-- Right: Photo Grid -->
+                        <div class="wf-photo-area">
+                            <div class="wf-photo-area-title">Black (24 images)</div>
+                            <div class="wf-photo-grid">
+                                <div class="wf-photo-card">
+                                    <div class="wf-photo-thumb">[img]</div>
+                                    <div class="wf-photo-info">
+                                        <div class="wf-photo-filename">SQT2_BLK_01.png</div>
+                                        <div class="wf-photo-status status-ok">ok</div>
+                                    </div>
+                                </div>
+                                <div class="wf-photo-card">
+                                    <div class="wf-photo-thumb">[img]</div>
+                                    <div class="wf-photo-info">
+                                        <div class="wf-photo-filename">SQT2_BLK_02.png</div>
+                                        <div class="wf-photo-status status-ok">ok</div>
+                                    </div>
+                                </div>
+                                <div class="wf-photo-card">
+                                    <div class="wf-photo-thumb">[img]</div>
+                                    <div class="wf-photo-info">
+                                        <div class="wf-photo-filename">SQT2_BLK_03.png</div>
+                                        <div class="wf-photo-status status-fixed">fixed</div>
+                                    </div>
+                                </div>
+                                <div class="wf-photo-card">
+                                    <div class="wf-photo-thumb">[img]</div>
+                                    <div class="wf-photo-info">
+                                        <div class="wf-photo-filename">SQT2_BLK_04.png</div>
+                                        <div class="wf-photo-status status-ok">ok</div>
+                                    </div>
+                                </div>
+                                <div class="wf-photo-card">
+                                    <div class="wf-photo-thumb">[img]</div>
+                                    <div class="wf-photo-info">
+                                        <div class="wf-photo-filename">SQT2_WHT_09.png</div>
+                                        <div class="wf-photo-status status-fixed">fixed</div>
+                                    </div>
+                                </div>
+                                <div class="wf-photo-card">
+                                    <div class="wf-photo-thumb">[img]</div>
+                                    <div class="wf-photo-info">
+                                        <div class="wf-photo-filename">SQT2_BLK_06.png</div>
+                                        <div class="wf-photo-status status-ok">ok</div>
+                                    </div>
+                                </div>
+                                <div class="wf-photo-card">
+                                    <div class="wf-photo-thumb">[img]</div>
+                                    <div class="wf-photo-info">
+                                        <div class="wf-photo-filename">IMG_4821.jpg</div>
+                                        <div class="wf-photo-status status-unsorted">unsorted</div>
+                                    </div>
+                                </div>
+                                <div class="wf-photo-card">
+                                    <div class="wf-photo-thumb">[img]</div>
+                                    <div class="wf-photo-info">
+                                        <div class="wf-photo-filename">SQT2_BLK_08.png</div>
+                                        <div class="wf-photo-status status-ok">ok</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1633,10 +1730,6 @@ section.alt {
                     </div>
                 </div>
 
-                <!-- NDA Notice -->
-                <div class="nda-notice fade-in">
-                    <p><em>This case study describes work done at Block, Inc. (Square). It covers process and design thinking only. Specific metrics, screenshots, and proprietary details are omitted per NDA. More information available upon request.</em></p>
-                </div>
             </div>
         </section>
 
