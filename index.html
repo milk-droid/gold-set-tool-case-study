@@ -1025,6 +1025,196 @@ section.alt {
     }
 }
 
+/* Wireframe: Upload Screen */
+.wireframe-upload {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 0;
+    padding: 0;
+    margin: 30px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.wireframe-upload::before {
+    content: '// wireframe: upload';
+    display: block;
+    color: var(--text-dim);
+    font-size: 0.7rem;
+    padding: 10px 16px;
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--border);
+    background: #0e0e0e;
+}
+
+.wf-upload-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px 30px;
+}
+
+.wf-dropzone {
+    width: 100%;
+    max-width: 480px;
+    height: 180px;
+    border: 2px dashed #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 28px;
+    background: #0a0a0a;
+}
+
+.wf-dropzone-arrow {
+    font-size: 1.8rem;
+    color: var(--accent);
+    line-height: 1;
+}
+
+.wf-dropzone-text {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.wf-instructions {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 480px;
+}
+
+.wf-instruction {
+    flex: 1;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.wf-instruction-num {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--accent);
+    min-width: 16px;
+}
+
+.wf-instruction-text {
+    font-size: 0.55rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Wireframe: Export + Coverage */
+.wireframe-export {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 0;
+    padding: 0;
+    margin: 30px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.wireframe-export::before {
+    content: '// wireframe: export + coverage';
+    display: block;
+    color: var(--text-dim);
+    font-size: 0.7rem;
+    padding: 10px 16px;
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--border);
+    background: #0e0e0e;
+}
+
+.wf-coverage-rows {
+    padding: 16px;
+}
+
+.wf-coverage-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.wf-coverage-row:last-child { border-bottom: none; }
+
+.wf-coverage-name {
+    font-size: 0.65rem;
+    color: var(--text);
+    width: 100px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+}
+
+.wf-coverage-bar-track {
+    flex: 1;
+    height: 14px;
+    background: #1a1a1a;
+}
+
+.wf-coverage-bar-fill {
+    height: 100%;
+    background: var(--accent);
+    opacity: 0.7;
+}
+
+.wf-coverage-pct {
+    font-size: 0.65rem;
+    color: var(--accent);
+    font-weight: 600;
+    width: 40px;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.wf-export-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    border-top: 1px solid var(--border);
+    background: #0c0c0c;
+}
+
+.wf-export-stats {
+    font-size: 0.6rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.wf-export-btn {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: #0a0a0a;
+    background: var(--accent);
+    padding: 8px 24px;
+    border: none;
+    cursor: default;
+}
+
+@media (max-width: 576px) {
+    .wf-instructions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .wf-coverage-name {
+        width: 70px;
+        font-size: 0.55rem;
+    }
+}
+
 /* Wireframe: Sort + Review Layout */
 .wireframe-section {
     background: var(--surface);
@@ -1607,6 +1797,35 @@ section.alt {
                     </div>
                 </div>
 
+                <!-- Wireframe: Upload Screen -->
+                <div class="wireframe-upload fade-in">
+                    <div class="wf-steps-bar">
+                        <div class="wf-step active"><span class="wf-step-num">01</span>Upload</div>
+                        <div class="wf-step"><span class="wf-step-num">02</span>Sort + Review</div>
+                        <div class="wf-step"><span class="wf-step-num">03</span>Export</div>
+                    </div>
+                    <div class="wf-upload-content">
+                        <div class="wf-dropzone">
+                            <div class="wf-dropzone-arrow">&uarr;</div>
+                            <div class="wf-dropzone-text">Drop your zip file here</div>
+                        </div>
+                        <div class="wf-instructions">
+                            <div class="wf-instruction">
+                                <span class="wf-instruction-num">01</span>
+                                <span class="wf-instruction-text">Upload a zip of product photos</span>
+                            </div>
+                            <div class="wf-instruction">
+                                <span class="wf-instruction-num">02</span>
+                                <span class="wf-instruction-text">AI sorts by color and type</span>
+                            </div>
+                            <div class="wf-instruction">
+                                <span class="wf-instruction-num">03</span>
+                                <span class="wf-instruction-text">Review, fix, then export</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Wireframe: Sort + Review -->
                 <div class="wireframe-section fade-in">
                     <!-- Step Indicator Bar -->
@@ -1706,6 +1925,46 @@ section.alt {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Wireframe: Export + Coverage -->
+                <div class="wireframe-export fade-in">
+                    <div class="wf-steps-bar">
+                        <div class="wf-step"><span class="wf-step-num">01</span>Upload</div>
+                        <div class="wf-step"><span class="wf-step-num">02</span>Sort + Review</div>
+                        <div class="wf-step active"><span class="wf-step-num">03</span>Export</div>
+                    </div>
+                    <div class="wf-coverage-rows">
+                        <div class="wf-coverage-row">
+                            <span class="wf-coverage-name">Black</span>
+                            <div class="wf-coverage-bar-track"><div class="wf-coverage-bar-fill" style="width:92%"></div></div>
+                            <span class="wf-coverage-pct">92%</span>
+                        </div>
+                        <div class="wf-coverage-row">
+                            <span class="wf-coverage-name">White</span>
+                            <div class="wf-coverage-bar-track"><div class="wf-coverage-bar-fill" style="width:78%"></div></div>
+                            <span class="wf-coverage-pct">78%</span>
+                        </div>
+                        <div class="wf-coverage-row">
+                            <span class="wf-coverage-name">Glow</span>
+                            <div class="wf-coverage-bar-track"><div class="wf-coverage-bar-fill" style="width:64%"></div></div>
+                            <span class="wf-coverage-pct">64%</span>
+                        </div>
+                        <div class="wf-coverage-row">
+                            <span class="wf-coverage-name">Matte</span>
+                            <div class="wf-coverage-bar-track"><div class="wf-coverage-bar-fill" style="width:51%"></div></div>
+                            <span class="wf-coverage-pct">51%</span>
+                        </div>
+                        <div class="wf-coverage-row">
+                            <span class="wf-coverage-name">Silver</span>
+                            <div class="wf-coverage-bar-track"><div class="wf-coverage-bar-fill" style="width:35%"></div></div>
+                            <span class="wf-coverage-pct">35%</span>
+                        </div>
+                    </div>
+                    <div class="wf-export-summary">
+                        <span class="wf-export-stats">72 images sorted / 3 unsorted / 5 categories</span>
+                        <div class="wf-export-btn">Export</div>
                     </div>
                 </div>
             </div>
