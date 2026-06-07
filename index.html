@@ -1246,7 +1246,7 @@ section.alt {
     color: var(--text);
     position: relative;
     overflow: hidden;
-    border: 1px solid var(--border);
+    border: 1px solid var(--accent);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -1438,7 +1438,7 @@ section.alt {
             <div class="hero-content">
                 <span class="role-badge">Design + Build (Solo)</span>
                 <h1>Gold Set <span>Tool</span></h1>
-                <p>Designing a QA workflow for AI training image sets at Block, Inc.</p>
+                <p>I redesigned an internal tool that sorts, labels, and QA-checks product photos used to train an AI image model.</p>
             </div>
         </div>
     </header>
@@ -1488,8 +1488,8 @@ section.alt {
             <div class="container">
                 <h2 class="section-heading fade-in">The Problem</h2>
                 <div class="text-content fade-in">
-                    <p>A folder of photos arrives. Sorting and labelling is manual. The QA pass keeps slipping. The team maintains curated reference photo sets used to fine-tune an internal generative model. Each product line needs specific angles, finishes, and environments. Holes in the set become holes in what the model can imagine.</p>
-                    <p>The first version of the tool worked but had three problems: AI sorting was painfully slow, the UX required too many clicks, and sorting accuracy was poor.</p>
+                    <p>The team maintains curated sets of product photos used to fine-tune an internal generative AI model. Each product line needs photos covering specific angles, finishes, and environments. When photos are missing from the set, the model produces worse results for those cases.</p>
+                    <p>Photos arrive in bulk as unsorted folders. The first version of the tool sorted them using AI vision, but it was slow, expensive, and inaccurate. The UX also required too many clicks to review and approve each image.</p>
                 </div>
             </div>
         </section>
@@ -1498,22 +1498,22 @@ section.alt {
         <section id="approach" class="alt">
             <div class="container">
                 <h2 class="section-heading fade-in">The Approach</h2>
-                <p class="subheading fade-in">Three jobs, in order of how much they hurt:</p>
+                <p class="subheading fade-in">The tool needs to do three things:</p>
                 <div class="approach-grid fade-in">
                     <div class="approach-card">
                         <div class="approach-number">01</div>
-                        <h3>Sort the mess</h3>
-                        <p>Sort the messy folder into the right buckets. Raw photos arrive unsorted - the tool needs to place each one into the correct product-line category automatically.</p>
+                        <h3>Sort incoming photos</h3>
+                        <p>Automatically place each uploaded photo into the correct product-line category (e.g., by finish color or material type).</p>
                     </div>
                     <div class="approach-card">
                         <div class="approach-number">02</div>
-                        <h3>Show coverage</h3>
-                        <p>Show coverage at a glance - which cells are empty. The team needs to see gaps in the reference set without clicking through hundreds of images.</p>
+                        <h3>Show coverage gaps</h3>
+                        <p>Display a matrix showing which categories have enough photos and which ones are missing coverage, without requiring the user to click through hundreds of images.</p>
                     </div>
                     <div class="approach-card">
                         <div class="approach-number">03</div>
-                        <h3>Stage QA</h3>
-                        <p>Stage QA - let a reviewer click through and approve. Every sorted image needs a human sign-off before it enters the gold set.</p>
+                        <h3>Enable human QA</h3>
+                        <p>Let a reviewer click through sorted images and approve or reject each one. Every image needs a human sign-off before it enters the final reference set.</p>
                     </div>
                 </div>
             </div>
@@ -1528,24 +1528,24 @@ section.alt {
                     <div class="process-item">
                         <div class="process-marker">1</div>
                         <div class="process-content">
-                            <div class="process-title">Squeeze the model</div>
-                            <p>Rewrote the AI sorting pipeline: swapped to a smaller, cheaper vision model, reduced image resolution, switched to parallel batch processing with structured JSON output. Order-of-magnitude cost reduction while improving consistency.</p>
+                            <div class="process-title">Optimize the AI pipeline</div>
+                            <p>I rewrote the sorting pipeline: swapped to a smaller, cheaper vision model, reduced the image resolution sent to the API, and switched to parallel batch processing with structured JSON output. This cut costs significantly while improving consistency.</p>
                         </div>
                     </div>
                     <!-- Step 2 -->
                     <div class="process-item">
                         <div class="process-marker">2</div>
                         <div class="process-content">
-                            <div class="process-title">Steal the keyboard from the AI</div>
-                            <p>The model produced inconsistent labels for the same thing. Added layered normalization: deterministic key sorting first, then a hand-curated synonym table, then a drag-to-merge gesture in the UI. Each layer cheaper than the one above.</p>
+                            <div class="process-title">Fix inconsistent labels</div>
+                            <p>The AI model would label the same finish differently across images. I added three layers of normalization: deterministic key sorting handles the obvious cases, a curated synonym table catches known variants, and a drag-to-merge gesture in the UI lets reviewers handle the rest.</p>
                         </div>
                     </div>
                     <!-- Step 3 -->
                     <div class="process-item">
                         <div class="process-marker">3</div>
                         <div class="process-content">
-                            <div class="process-title">Hybrid sort - keyword first, AI for the ambiguous</div>
-                            <p>Most files had the answer in the filename already. Regex handles those first. The vision model only sees the genuinely ambiguous ones. Reviewers only see the low-confidence cases.</p>
+                            <div class="process-title">Use AI only when needed</div>
+                            <p>Most files already had the category in the filename (e.g., "PRD_BLK_01.png"). A regex extracts those first. The AI vision model only runs on genuinely ambiguous files. Reviewers only see low-confidence results. This hybrid approach handles about 60% of files without touching the AI at all.</p>
                         </div>
                     </div>
 
@@ -1579,8 +1579,8 @@ section.alt {
                     <div class="process-item">
                         <div class="process-marker">4</div>
                         <div class="process-content">
-                            <div class="process-title">Match the existing system</div>
-                            <p>The tool sits inside a larger asset management system. Fed the existing UI to Claude alongside my design, asked for a styling diff. 14 small alignments - none visible alone, all visible together. The tool stopped looking bolted-on.</p>
+                            <div class="process-title">Match the existing UI</div>
+                            <p>This tool lives inside a larger asset management system. I fed screenshots of the existing UI to Claude alongside my design and asked it to identify styling differences. It found 14 small mismatches in spacing, color, and type. None were noticeable on their own, but fixing all of them made the tool feel native instead of bolted-on.</p>
                         </div>
                     </div>
                 </div>
@@ -1593,16 +1593,16 @@ section.alt {
                 <h2 class="section-heading fade-in">Design Decisions</h2>
                 <div class="findings-grid fade-in">
                     <div class="finding-card">
-                        <h3>The tool is a checklist, not a generator.</h3>
-                        <p>Surfacing gaps is its job. Filling them is a creative act that belongs to designers.</p>
+                        <h3>Show gaps, don't fill them</h3>
+                        <p>The tool identifies what's missing from the photo set. Actually creating those photos is a creative decision that belongs to the design team.</p>
                     </div>
                     <div class="finding-card">
-                        <h3>Coverage matrix over per-image badges.</h3>
-                        <p>Concentrating the signal in one corner lets the photos breathe everywhere else.</p>
+                        <h3>Coverage matrix over per-image badges</h3>
+                        <p>Instead of putting status badges on every image, I put coverage information in a sidebar matrix. This keeps the photo grid clean and lets you see overall status at a glance.</p>
                     </div>
                     <div class="finding-card">
-                        <h3>Keep the receipts.</h3>
-                        <p>Every label keeps its source - AI-given, filename-derived, manually overridden. Provenance is what makes an AI tool trustworthy.</p>
+                        <h3>Show where every label came from</h3>
+                        <p>Every label shows its source: extracted from filename, assigned by AI, or manually overridden by a reviewer. This transparency is what makes people trust the tool's output.</p>
                     </div>
                 </div>
 
@@ -1650,42 +1650,42 @@ section.alt {
                                 <div class="wf-photo-card">
                                     <div class="wf-photo-thumb">[img]</div>
                                     <div class="wf-photo-info">
-                                        <div class="wf-photo-filename">SQT2_BLK_01.png</div>
+                                        <div class="wf-photo-filename">PRD_BLK_01.png</div>
                                         <div class="wf-photo-status status-ok">ok</div>
                                     </div>
                                 </div>
                                 <div class="wf-photo-card">
                                     <div class="wf-photo-thumb">[img]</div>
                                     <div class="wf-photo-info">
-                                        <div class="wf-photo-filename">SQT2_BLK_02.png</div>
+                                        <div class="wf-photo-filename">PRD_BLK_02.png</div>
                                         <div class="wf-photo-status status-ok">ok</div>
                                     </div>
                                 </div>
                                 <div class="wf-photo-card">
                                     <div class="wf-photo-thumb">[img]</div>
                                     <div class="wf-photo-info">
-                                        <div class="wf-photo-filename">SQT2_BLK_03.png</div>
+                                        <div class="wf-photo-filename">PRD_BLK_03.png</div>
                                         <div class="wf-photo-status status-fixed">fixed</div>
                                     </div>
                                 </div>
                                 <div class="wf-photo-card">
                                     <div class="wf-photo-thumb">[img]</div>
                                     <div class="wf-photo-info">
-                                        <div class="wf-photo-filename">SQT2_BLK_04.png</div>
+                                        <div class="wf-photo-filename">PRD_BLK_04.png</div>
                                         <div class="wf-photo-status status-ok">ok</div>
                                     </div>
                                 </div>
                                 <div class="wf-photo-card">
                                     <div class="wf-photo-thumb">[img]</div>
                                     <div class="wf-photo-info">
-                                        <div class="wf-photo-filename">SQT2_WHT_09.png</div>
+                                        <div class="wf-photo-filename">PRD_WHT_09.png</div>
                                         <div class="wf-photo-status status-fixed">fixed</div>
                                     </div>
                                 </div>
                                 <div class="wf-photo-card">
                                     <div class="wf-photo-thumb">[img]</div>
                                     <div class="wf-photo-info">
-                                        <div class="wf-photo-filename">SQT2_BLK_06.png</div>
+                                        <div class="wf-photo-filename">PRD_BLK_06.png</div>
                                         <div class="wf-photo-status status-ok">ok</div>
                                     </div>
                                 </div>
@@ -1699,7 +1699,7 @@ section.alt {
                                 <div class="wf-photo-card">
                                     <div class="wf-photo-thumb">[img]</div>
                                     <div class="wf-photo-info">
-                                        <div class="wf-photo-filename">SQT2_BLK_08.png</div>
+                                        <div class="wf-photo-filename">PRD_BLK_08.png</div>
                                         <div class="wf-photo-status status-ok">ok</div>
                                     </div>
                                 </div>
@@ -1715,17 +1715,17 @@ section.alt {
             <div class="container">
                 <h2 class="section-heading fade-in">Reflection</h2>
                 <div class="quote-box fade-in">
-                    <p class="quote-text">Cap what AI does. The human stays in charge.</p>
+                    <p class="quote-text">Limit what the AI decides. A human makes the final call.</p>
                 </div>
                 <div class="reflection-box fade-in">
-                    <p>The model labels, canonical keys deduplicate, and the matrix highlights gaps, but a person always makes the final call. Each layer is cheaper to run than the one above, and easier to verify.</p>
+                    <p>The AI labels photos, deterministic rules deduplicate categories, and the coverage matrix highlights gaps. But a person always approves the final result. I designed each layer to be cheaper and easier to verify than the one above it: filename extraction costs nothing, AI sorting costs a little, and human review is reserved for the cases that actually need judgment.</p>
                 </div>
 
                 <!-- Related Project Callout -->
                 <div class="callout-box fade-in">
                     <div class="callout-content">
                         <h3>Related Project</h3>
-                        <p>I built a similar code analysis tool with automated review and human oversight: <a href="https://github.com/naeema-scopes/roastmyrepo" target="_blank" rel="noopener noreferrer">RoastMyRepo</a> - open source, with full code.</p>
+                        <p>I built a related open-source project that uses a similar pattern of automated analysis with human oversight, applied to code review: <a href="https://github.com/naeema-scopes/roastmyrepo" target="_blank" rel="noopener noreferrer">RoastMyRepo</a>. Full source code available.</p>
                         <a href="https://github.com/naeema-scopes/roastmyrepo" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View on GitHub</a>
                     </div>
                 </div>
