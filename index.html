@@ -939,6 +939,259 @@ section.alt {
     color: var(--text-dim);
 }
 
+/* NDA Notice Top - prominent placement */
+.nda-notice-top {
+    text-align: left;
+    padding: 20px 25px;
+    margin: 0 0 0;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    border: 1px solid var(--border);
+    border-left: 2px solid var(--accent);
+    border-radius: var(--radius);
+    background: var(--surface);
+    position: relative;
+}
+
+.nda-notice-top::before {
+    content: '$ cat /notice.txt';
+    display: block;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+.nda-notice-top p {
+    margin: 0;
+    line-height: 1.7;
+}
+
+/* ASCII Flow Diagram */
+.ascii-flow {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 30px;
+    margin: 30px 0 10px;
+    overflow-x: auto;
+    position: relative;
+}
+
+.ascii-flow::before {
+    content: '// hybrid-sort-flow.txt';
+    display: block;
+    color: var(--text-dim);
+    font-size: 0.7rem;
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+}
+
+.ascii-flow pre {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--text-dim);
+    margin: 0;
+    white-space: pre;
+}
+
+.ascii-flow .af-label {
+    color: var(--accent);
+}
+
+.ascii-flow .af-done {
+    color: var(--accent-light);
+    font-weight: 600;
+}
+
+.ascii-flow .af-border {
+    color: #333;
+}
+
+.ascii-flow .af-question {
+    color: var(--accent);
+    font-style: italic;
+}
+
+@media (max-width: 576px) {
+    .ascii-flow {
+        padding: 18px 14px;
+    }
+    .ascii-flow pre {
+        font-size: 0.65rem;
+        line-height: 1.4;
+    }
+}
+
+/* Wireframe: Coverage Matrix + Image Grid */
+.wireframe-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 30px;
+    margin: 30px 0;
+    position: relative;
+}
+
+.wireframe-section::before {
+    content: '// wireframe: coverage-matrix + image-grid';
+    display: block;
+    color: var(--text-dim);
+    font-size: 0.7rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.wireframe-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.wireframe-panel {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+}
+
+.wireframe-panel-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+/* Coverage grid wireframe */
+.wf-coverage-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.wf-cell {
+    aspect-ratio: 1;
+    border-radius: 2px;
+    min-height: 36px;
+}
+
+.wf-cell.filled {
+    background: var(--accent);
+    opacity: 0.7;
+}
+
+.wf-cell.partial {
+    background: var(--accent-dark);
+    opacity: 0.4;
+}
+
+.wf-cell.empty {
+    background: transparent;
+    border: 1px dashed #333;
+}
+
+.wf-legend {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.wf-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.7rem;
+    color: var(--text-dim);
+}
+
+.wf-legend-swatch {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+}
+
+.wf-legend-swatch.swatch-filled {
+    background: var(--accent);
+    opacity: 0.7;
+}
+
+.wf-legend-swatch.swatch-partial {
+    background: var(--accent-dark);
+    opacity: 0.4;
+}
+
+.wf-legend-swatch.swatch-empty {
+    border: 1px dashed #333;
+}
+
+/* Image card grid wireframe */
+.wf-image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.wf-image-card {
+    aspect-ratio: 4/3;
+    border-radius: 2px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 6px;
+    font-size: 0.6rem;
+    letter-spacing: 0.5px;
+    min-height: 60px;
+}
+
+.wf-image-card.card-ai {
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+}
+
+.wf-image-card.card-file {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid #333;
+    color: var(--text-dim);
+}
+
+.wf-image-card.card-uncertain {
+    background: transparent;
+    border: 1px dashed var(--accent-dark);
+    color: var(--accent-dark);
+}
+
+@media (max-width: 768px) {
+    .wireframe-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .wireframe-section {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .wf-coverage-grid {
+        gap: 5px;
+    }
+    .wf-cell {
+        min-height: 28px;
+    }
+    .wf-image-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .wf-image-card {
+        font-size: 0.55rem;
+    }
+}
+
 /* Callout Box (RoastMyRepo) - terminal link style */
 .callout-box {
     background: var(--surface);
@@ -1140,13 +1393,22 @@ section.alt {
             <div class="hero-content">
                 <span class="role-badge">Design + Build (Solo)</span>
                 <h1>Gold Set <span>Tool</span></h1>
-                <p>Designing a QA workflow for AI training image sets at a major fintech company</p>
+                <p>Designing a QA workflow for AI training image sets at Block, Inc.</p>
             </div>
         </div>
     </header>
 
     <!-- Main Content -->
     <main id="main-content">
+
+        <!-- NDA Notice Top -->
+        <section style="padding: 30px 0 0;">
+            <div class="container">
+                <div class="nda-notice-top fade-in">
+                    <p>This case study describes work done at Block, Inc. (Square). It covers process and design thinking only. Specific metrics, screenshots, and proprietary details are omitted per NDA. More information available upon request.</p>
+                </div>
+            </div>
+        </section>
 
         <!-- Project Info Bar -->
         <section>
@@ -1241,6 +1503,33 @@ section.alt {
                             <p>Most files had the answer in the filename already. Regex handles those first. The vision model only sees the genuinely ambiguous ones. Reviewers only see the low-confidence cases.</p>
                         </div>
                     </div>
+
+                    <!-- ASCII Flow Diagram -->
+                    <div class="ascii-flow fade-in" style="margin-left: 65px;">
+                        <pre>
+  <span class="af-label">INCOMING FILES</span>
+        |
+        v
+  <span class="af-border">+-----------------------+</span>
+  <span class="af-border">|</span> <span class="af-label">Filename Extractor</span>    <span class="af-border">|</span>    <span class="af-question">has finish in name?</span>
+  <span class="af-border">+-----------------------+</span>
+        |            \
+       no           yes ---&gt; <span class="af-done">DONE (~60% of files)</span>
+        |
+        v
+  <span class="af-border">+-----------------------+</span>
+  <span class="af-border">|</span> <span class="af-label">Vision Model</span>          <span class="af-border">|</span>    <span class="af-question">confidence >= 0.7?</span>
+  <span class="af-border">|</span> <span class="af-label">gpt-4o-mini, low-res</span>  <span class="af-border">|</span>
+  <span class="af-border">+-----------------------+</span>
+        |            \
+       low          yes ---&gt; <span class="af-done">DONE (with badge)</span>
+        |
+        v
+  <span class="af-border">+-----------------------+</span>
+  <span class="af-border">|</span> <span class="af-label">FLAGGED "?"</span>           <span class="af-border">|</span>    <span class="af-question">surfaced for human review</span>
+  <span class="af-border">+-----------------------+</span></pre>
+                    </div>
+
                     <!-- Step 4 -->
                     <div class="process-item">
                         <div class="process-marker">4</div>
@@ -1271,6 +1560,56 @@ section.alt {
                         <p>Every label keeps its source - AI-given, filename-derived, manually overridden. Provenance is what makes an AI tool trustworthy.</p>
                     </div>
                 </div>
+
+                <!-- Wireframe: Coverage Matrix + Image Grid -->
+                <div class="wireframe-section fade-in">
+                    <div class="wireframe-layout">
+                        <!-- Left: Coverage Matrix -->
+                        <div class="wireframe-panel">
+                            <div class="wireframe-panel-title">Coverage Matrix</div>
+                            <div class="wf-coverage-grid">
+                                <div class="wf-cell filled"></div>
+                                <div class="wf-cell filled"></div>
+                                <div class="wf-cell partial"></div>
+                                <div class="wf-cell empty"></div>
+                                <div class="wf-cell filled"></div>
+                                <div class="wf-cell empty"></div>
+                                <div class="wf-cell filled"></div>
+                                <div class="wf-cell filled"></div>
+                                <div class="wf-cell empty"></div>
+                                <div class="wf-cell partial"></div>
+                                <div class="wf-cell filled"></div>
+                                <div class="wf-cell empty"></div>
+                            </div>
+                            <div class="wf-legend">
+                                <div class="wf-legend-item">
+                                    <div class="wf-legend-swatch swatch-filled"></div>
+                                    covered
+                                </div>
+                                <div class="wf-legend-item">
+                                    <div class="wf-legend-swatch swatch-partial"></div>
+                                    partial
+                                </div>
+                                <div class="wf-legend-item">
+                                    <div class="wf-legend-swatch swatch-empty"></div>
+                                    gap
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Right: Image Card Grid -->
+                        <div class="wireframe-panel">
+                            <div class="wireframe-panel-title">Image Cards</div>
+                            <div class="wf-image-grid">
+                                <div class="wf-image-card card-ai">AI: glow</div>
+                                <div class="wf-image-card card-file">file: black</div>
+                                <div class="wf-image-card card-ai">AI: matte</div>
+                                <div class="wf-image-card card-file">file: white</div>
+                                <div class="wf-image-card card-uncertain">? low conf</div>
+                                <div class="wf-image-card card-file">file: silver</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -1296,7 +1635,7 @@ section.alt {
 
                 <!-- NDA Notice -->
                 <div class="nda-notice fade-in">
-                    <p><em>This case study describes process and design thinking only. Specific metrics, screenshots, and proprietary details are omitted per NDA. More information available upon request.</em></p>
+                    <p><em>This case study describes work done at Block, Inc. (Square). It covers process and design thinking only. Specific metrics, screenshots, and proprietary details are omitted per NDA. More information available upon request.</em></p>
                 </div>
             </div>
         </section>
